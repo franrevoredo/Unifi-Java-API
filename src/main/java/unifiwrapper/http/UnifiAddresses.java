@@ -30,7 +30,7 @@ public class UnifiAddresses {
 	
 	public static String ALL_CLIENTS_LAST_TIME = API_CALL + STAT + "/alluser/";
 	
-	public static String ALL_CLIENTS = API_CALL + LIST + "/user/";
+	public static String ALL_CLIENTS = API_CALL + STAT + "/sta/";
 
 	public static String ALL_GROUPS = API_CALL + LIST + "/usergroup/";
 

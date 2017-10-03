@@ -138,4 +138,13 @@ public class ClientFunctions extends Connection {
 		}
 		return c;
 	}
+	
+	public JSONArray authorizeClient(String macAddress) {
+		  HashMap<String, String> cmds = new HashMap<String,String>();
+		  cmds.put("mac", macAddress);
+		  cmds.put("cmd", "authorize-guest");
+		  
+		  return query(UnifiAddresses.CMD, makeCMD(cmds));
+		  
+		 }
 }

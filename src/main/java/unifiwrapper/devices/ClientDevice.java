@@ -19,6 +19,8 @@ public interface ClientDevice {
 	public Boolean getIsBlocked();
 
 	public String getMac();
+	
+	public String getIp();
 
 	public String getOui();
 

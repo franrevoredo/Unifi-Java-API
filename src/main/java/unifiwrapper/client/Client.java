@@ -69,6 +69,10 @@ public abstract class Client implements ClientDevice{
 		return o.getString("mac");
 	}
 
+	public String getIp() {
+		return o.getString("ip");
+	}
+	
 	public String getOui() {
 		return o.getString("Oui");
 	}
