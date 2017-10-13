@@ -68,6 +68,15 @@ public abstract class Client implements ClientDevice{
 	public String getMac() {
 		return o.getString("mac");
 	}
+	
+	public Boolean getIsAuthorized() {
+		try{
+			return o.getBoolean("authorized");			
+		}
+		catch(JSONException e){
+			return false;
+		}
+	}
 
 	public String getIp() {
 		return o.getString("ip");

@@ -17,6 +17,8 @@ public interface ClientDevice {
 	public Boolean getIsWired();
 
 	public Boolean getIsBlocked();
+	
+	public Boolean getIsAuthorized();
 
 	public String getMac();
 	
