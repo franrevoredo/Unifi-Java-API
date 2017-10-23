@@ -11,6 +11,8 @@ public class UnifiAddresses {
 	public static String API = "/api";
 
 	public static String LOGIN = API + "/login";
+	
+	public static String LOGOUT = API + "/logout";
 
 	public static String SITE_NAME = "/s";
 

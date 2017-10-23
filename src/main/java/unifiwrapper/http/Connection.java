@@ -80,6 +80,34 @@ public abstract class Connection {
 
 	private HttpsURLConnection connection = null;
 
+	public void disconnect() throws Exception {
+		URL url;
+
+		// making the URL
+		String urlAddress = "https://" + host + ":" + port + UnifiAddresses.LOGOUT;
+
+		logger.debug("Connecting to: " + urlAddress);
+		url = new URL(urlAddress);
+		
+		connection = (HttpsURLConnection) url.openConnection();
+
+		// setting some headers and the post body
+		String query = "{\"username\":\"" + user + "\",\"password\":\"" + password + "\"}:";
+		connection.setRequestMethod("POST");
+		connection.setRequestProperty("Content-length", String.valueOf(query.length()));
+		connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+		connection.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0;Windows98;DigExt)");
+		connection.setDoOutput(true);
+		connection.setDoInput(true);
+
+		DataOutputStream output = new DataOutputStream(connection.getOutputStream());
+		output.writeBytes(query);
+		output.close();
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		
+	}
+	
 	/**
 	 * Make the connection to UNIFI server!
 	 * @throws Exception
